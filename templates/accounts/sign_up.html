@@ -1,0 +1,54 @@
+{% extends 'layout/base.html' %}
+
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+
+<div id="content" class="container">
+    <h2>{{ title }}</h2>
+    <hr>
+    <form action="/accounts/sign_up" method="post">
+        <p>
+            <label for="login">Логин</label><br>
+            <input type="text" id="login" name="login" class="inp" required>
+        </p>
+        <p>
+            <label for="login">Пароль</label><br>
+            <input type="password" id="pass1" name="pass1" class="inp" required>
+        </p>
+        <p>
+            <label for="login">Повтор</label><br>
+            <input type="password" id="pass2" name="pass2" class="inp" required>
+        </p>
+        <p>
+            <label for="login">E-mail</label><br>
+            <input type="email" id="email" name="email" class="inp" required>
+        </p>
+    </form>
+</div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

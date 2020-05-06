@@ -1,0 +1,31 @@
+{% extends 'layout/base.html' %}
+
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+
+<div id="content" class="container">
+    <h2>{{ title }}</h2>
+    <hr>
+    <h4>Вы собираетесь удалить новость</h4>
+    <h3>{{ post.title }} / {{ post.author }} / {{ post.published }}</h3>
+    <h4>Подтвердите удаление</h4>
+    <form action="/news/delete/{{ post.id }}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Удалить" class="btn btn-secondary" style="width: 200px">
+    </form>
+    <a href="/news">Вернуться к ленте новостей</a>
+    <hr>
+</div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+

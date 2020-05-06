@@ -1,0 +1,28 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+
+<div id="content" class="container">
+    <h2>{{ title }}</h2>
+    <hr>
+    <div>
+        <img src="/media/{{ post.image }}" width="30%" align="left" style="margin-right: 50px">
+        <h3>{{ post.title }}</h3>
+        <h5>
+            {{ post.published }} => {{ post.author }}
+        </h5>
+        <h4>{{ post.content }}</h4>
+        <div style="clear: left"></div>
+        <a href="/news">Вернуться к ленте новотей</a>
+    </div>
+    <hr>
+</div>
+{% endblock content %}
+
+
+
+
+
+

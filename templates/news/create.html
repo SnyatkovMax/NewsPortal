@@ -1,0 +1,63 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+
+{% block content %}
+<div id="content" class="container">
+    <h2>{{ title }}</h2>
+    <hr>
+    <div style="text-align: left">
+        <form method="post" action="/news/create" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div id="form_template">
+                {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    <div>{{ field }}</div>
+                </div>
+                {% endfor %}
+            </div>
+            <p style="margin-top: 20px">
+                <input id="b1" type="submit" value="Отправить" class="btn btn-success">
+                <input id="b2" type="reset" value="Очистить" class="btn btn-success">
+            </p>
+        </form>
+    </div>
+    <a href="/news">Вернуться к новостям</a>
+    <hr>
+</div>
+<style>
+    .form-group input {
+        width: 50%;
+        height: 30px;
+    }
+    .form-group textarea {
+        width: 50%;
+    }
+    #b1, #b2 {
+        width: 150px;
+    }
+</style>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
