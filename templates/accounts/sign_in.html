@@ -8,5 +8,34 @@
 <div id="content" class="container">
     <h2>{{ title }}</h2>
     <hr>
+    <form id="form2" action="/accounts/sign_up" method="post">
+        {% csrf_token %}
+        <p>
+            <label for="login">Логин</label><br>
+            <input type="text" id="login" name="login" class="inp" required>
+        </p>
+        <p>
+            <label for="pass1">Пароль</label><br>
+            <input type="password" id="pass1" name="pass1" class="inp" required>
+        </p>
+        <p style="margin-top: 30px">
+            <input type="submit" value="Войти" class="btn btn-success" style="width: 150px">
+            <input type="reset" value="Очистить" class="btn btn-success" style="width: 150px">
+
+        </p>
+    </form>
+    <hr>
+
 </div>
 {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
