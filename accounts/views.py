@@ -1,6 +1,4 @@
 from django.shortcuts import render, redirect
-from hashlib import md5
-from datetime import datetime
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
@@ -47,7 +45,7 @@ def sign_up(request):
                 data['color_x'] = 'green'
                 data['report_x'] = 'Регистрация успешно завершена'
 
-        return render(request, 'accounts/report.html', context=data)
+        return render(request, 'accounts/reports.html', context=data)
 
 
 def sign_in(request):
@@ -64,14 +62,20 @@ def sign_in(request):
         user = authenticate(request, username=login_x, password=pass1_x)
         if user is None:
             data['color_x'] = 'red'
-            data['report'] = 'Пользователь не найден!'
+            data['report_x'] = 'Пользователь не найден!'
             data['title'] = 'Отчет об авторизации'
-            return render(request, 'accounts/sign_in_res.html', context=data)
+            return render(request, 'accounts/reports.html', context=data)
         else:
             login(request, user)
             return redirect('/home')
 
 
 def sign_out(request):
-    data = {'title': 'Выход из системы'}
-    return render(request, 'accounts/sign_in.html', context=data)
+    logout(request)
+    return redirect('/home')
+
+
+def profile(request):
+    data = dict()
+    data['title'] = 'Профиль'
+    return render(request, 'accounts/profile.html', context=data)

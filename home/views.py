@@ -14,5 +14,5 @@ def about(request):
 
 
 def contacts(request):
-    data = {'title': 'Конакты'}
+    data = {'title': 'Контакты'}
     return render(request, 'home/contacts.html', context=data)

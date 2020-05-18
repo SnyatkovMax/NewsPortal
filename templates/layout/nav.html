@@ -1,8 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">News Portal</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">NewsPortal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -23,17 +22,43 @@
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item">
                     <a class="nav-link" href="" style="margin-right: 50px">
-                        Привет, {{ user.username }} !
+                        Привет,
+                        {% if user.is_authenticated %}
+                            {{ user.username }}
+                        {% else %}
+                            Гость
+                        {% endif %}
+                        !
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/accounts/sign_in">Вход</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/accounts/sign_up">Регистрация</a>
-                </li>
+                {% if not user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/accounts/sign_in">Вход</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/accounts/sign_up">Регистрация</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/accounts/sign_out">Выход</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/accounts/profile">Профиль</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
+

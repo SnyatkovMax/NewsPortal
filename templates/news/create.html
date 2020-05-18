@@ -12,10 +12,10 @@
             {% csrf_token %}
             <div id="form_template">
                 {% for field in form %}
-                <div class="form-group">
-                    {{ field.label_tag }}
-                    <div>{{ field }}</div>
-                </div>
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        <div>{{ field }}</div>
+                    </div>
                 {% endfor %}
             </div>
             <p style="margin-top: 20px">
@@ -40,8 +40,6 @@
     }
 </style>
 {% endblock content %}
-
-
 
 
 
