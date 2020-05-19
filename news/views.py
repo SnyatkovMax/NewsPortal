@@ -23,20 +23,22 @@ def index(request):
     return render(request, 'news/index.html', context=data)
 
 
-# Временный админ 'temp_admin'
+
 
 
 def create(request):
     data = dict()
     data['title'] = 'Добавление новости'
     if request.method == 'GET':
-        # Блокировка доступа через адресную строку
+        # Блокировка доступа через адресную строку!
+        # =========================================
         if request.user.username == 'admin':
             data['form'] = PostForm()
             return render(request, 'news/create.html', context=data)
         else:
             logout(request)
             return redirect('/accounts/sign_up')
+        # =========================================
     elif request.method == 'POST':
         filled_form = PostForm(request.POST, request.FILES)
         filled_form.save()

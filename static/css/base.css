@@ -54,6 +54,11 @@ body {
     text-align: center;
 }
 
+.mess {
+    color: red;
+    font-style: italic;
+    font-size: 10pt;
+}
 
 
 
